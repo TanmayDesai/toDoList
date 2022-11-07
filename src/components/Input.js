@@ -23,7 +23,7 @@ const Input = (props) => {
     const placeHolderText = "Tap the tasks to change status"
 
     return(
-        <div className="form" onSubmit={handleSubmit} autoComplete="nope">
+        <div className="form" onSubmit={handleSubmit} autoComplete="nope" sticky="top">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Enter Task</Form.Label>
