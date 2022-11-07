@@ -14,6 +14,10 @@ function App() {
   }
 
   const addToList = (val) => {
+    if(val === ""){
+      alert("Please enter valid task")
+      return;
+    }
     setTasks(tasks => [...tasks,{
       task: val,
       isCompleted: false
