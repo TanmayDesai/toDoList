@@ -2,38 +2,18 @@ import './App.css';
 import Input from './components/Input';
 import Display from './components/Display';
 import Tasks from "./components/Tasks";
-import Offcanvas from 'react-bootstrap/Offcanvas';
+
+
 
 import { useState } from 'react';
 
 function App() {
   const[tasks, setTasks] = useState(Tasks)
   const[view, setView] = useState("default")
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const changeView = (viewName) => {
     setView(viewName)
     //alert(`${viewName} clicked`)
-  }
-
-  const OffCanvas = () => {
-    return (
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>To Do List App</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Add Tasks by typing them and clicking on the add button. 
-          You can also tap on the card to change the status of the task. 
-          Green represents the tasks that have been completed while red represents the tasks that are not yet completed. 
-          You can also view the completed and incomplete tasks by clicking the respective buttons.
-          - Tanmay Desai
-        </Offcanvas.Body>
-      </Offcanvas>
-    );
   }
 
   const addToList = (val) => {
@@ -64,8 +44,7 @@ function App() {
     case "complete": return(
       <div className="App">
       {console.log(tasks)}
-      <h2 className='title' onClick={handleShow}>To Do List</h2>
-      <OffCanvas />
+      <h2 className='title'>To Do List</h2>
       <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
       <Display tasks = {taskCompleted} handleClick={toggleStatus} />
       </div>);
@@ -73,8 +52,7 @@ function App() {
     case "incomplete": return(
       <div className="App">
       {console.log(tasks)}
-      <h2 className='title' onClick={handleShow}>To Do List</h2>
-      <OffCanvas />
+      <h2 className='title'>To Do List</h2>
       <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
       <Display tasks = {taskIncomplete} handleClick={toggleStatus} />
       </div>);
@@ -82,8 +60,7 @@ function App() {
     case "default": return(
       <div className="App">
       {console.log(tasks)}
-      <h2 className='title' onClick={handleShow}>To Do List</h2>
-      <OffCanvas />
+      <h2 className='title'>To Do List</h2>
       <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
       <Display tasks = {tasks} handleClick={toggleStatus} />
       </div>);
@@ -91,8 +68,7 @@ function App() {
     default: return (
       <div className="App">
         {console.log(tasks)}
-        <h2 className='title' onClick={handleShow}>To Do List</h2>
-        <OffCanvas />
+        <h2 className='title'>To Do List</h2>
         <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
         <Display tasks = {tasks} handleClick={toggleStatus} />
       </div>
