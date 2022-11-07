@@ -50,10 +50,12 @@
 
   .title{
     margin-top: 8px;
+    margin-right: auto;
+    width: 20vw;
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1000px) {
   .App{
     width: 85vw;
     box-shadow: none;
@@ -63,6 +65,9 @@
   }
   .display{
     margin-top: 10px;
+  }
+  .title{
+    margin-right: auto;
   }
 }
 
