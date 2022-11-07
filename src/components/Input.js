@@ -25,7 +25,7 @@ const Input = (props) => {
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Enter Task</Form.Label>
-        <Form.Control type="text" value={text} onChange={handleChange} autoComplete="off" />
+        <Form.Control type="text" value={text} onChange={handleChange} autoComplete="new-password" />
         </Form.Group>
         <Button className="b" variant="primary" type="submit" >
         Add Task
