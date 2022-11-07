@@ -32,13 +32,13 @@ const Input = (props) => {
         <Button className="b" variant="primary" type="submit" >
         Add Task
         </Button>
-        <Button className="b" variant="primary" onClick={()=> props.changeView("incomplete")} >
-        Incomplete
+        <Button className="b" variant="danger" onClick={()=> props.changeView("incomplete")} >
+        Tasks Incomplete
         </Button>
-        <Button className="b" variant="primary" onClick={()=> props.changeView("complete")} >
-        Complete
+        <Button className="b" variant="success" onClick={()=> props.changeView("complete")} >
+        Tasks Completed
         </Button>
-        <Button className="b" variant="primary" onClick={()=> props.changeView("default")} >
+        <Button className="b" variant="warning" onClick={()=> props.changeView("default")} >
         All Tasks
         </Button>
         </Form>
