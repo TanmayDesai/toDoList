@@ -21,11 +21,11 @@ const Input = (props) => {
     }
 
     return(
-        <div className="form" onSubmit={handleSubmit}>
+        <div className="form" onSubmit={handleSubmit} autoComplete="off">
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Enter Task</Form.Label>
-        <Form.Control type="text" value={text} onChange={handleChange}/>
+        <Form.Control type="text" value={text} onChange={handleChange} autoComplete="off" />
         </Form.Group>
         <Button className="b" variant="primary" type="submit" >
         Add Task
