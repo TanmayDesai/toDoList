@@ -10,7 +10,7 @@ function App() {
 
   const changeView = (viewName) => {
     setView(viewName)
-    alert(`${viewName} clicked`)
+    //alert(`${viewName} clicked`)
   }
 
   const addToList = (val) => {
@@ -30,15 +30,45 @@ function App() {
     setTasks(arr)
   }
 
+  const taskCompleted = tasks.filter((item)=> item.isCompleted === true)
+  const taskIncomplete = tasks.filter((item)=> item.isCompleted === false)
 
-  return (
-    <div className="App">
+  switch(view){
+    case "complete": return(
+      <div className="App">
+      {console.log(tasks)}
+      <h2 className='title'>To Do List</h2>
+      <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
+      <Display tasks = {taskCompleted} handleClick={toggleStatus} />
+      </div>);
+      break;
+    case "incomplete": return(
+      <div className="App">
+      {console.log(tasks)}
+      <h2 className='title'>To Do List</h2>
+      <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
+      <Display tasks = {taskIncomplete} handleClick={toggleStatus} />
+      </div>);
+      break;
+    case "default": return(
+      <div className="App">
       {console.log(tasks)}
       <h2 className='title'>To Do List</h2>
       <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
       <Display tasks = {tasks} handleClick={toggleStatus} />
-    </div>
-  );
+      </div>);
+      break;
+    default: return (
+      <div className="App">
+        {console.log(tasks)}
+        <h2 className='title'>To Do List</h2>
+        <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
+        <Display tasks = {tasks} handleClick={toggleStatus} />
+      </div>
+    );
+  }
+
+  
 }
 
 export default App;
