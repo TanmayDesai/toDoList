@@ -15,7 +15,7 @@ const Input = (props) => {
         e.preventDefault();
         console.log(text)
         props.listAdd(text)
-        
+        setText("")
         //  alert(text)
      
     }
