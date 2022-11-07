@@ -6,13 +6,14 @@
 
 .App{
   width: 40vw;
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  border: solid 1px gray;
+  /* border: solid 1px gray; */
   padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .form{
@@ -21,7 +22,7 @@
 
 .display{
   width: 100%;
-  margin-top: 40px;
+  margin-top: 30px;
   
 }
 
@@ -39,4 +40,11 @@
   .App{
     width: 85vw;
   }
+  .b{
+    margin-bottom: 10px;
+  }
+  .display{
+    margin-top: 10px;
+  }
 }
+
