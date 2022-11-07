@@ -15,7 +15,7 @@ function App() {
 
   const addToList = (val) => {
     if(val === ""){
-      alert("Please enter valid task")
+      alert("Please add a valid task and try again :)")
       return;
     }
     setTasks(tasks => [...tasks,{
