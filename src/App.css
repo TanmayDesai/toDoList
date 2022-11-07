@@ -32,13 +32,16 @@
 
 @media only screen and (max-width: 600px) {
   .App{
-    width: 95vw;
+    width: 100vw;
+    box-shadow: none;
   }
+
 }
 
 @media only screen and (max-width: 850px) {
   .App{
     width: 85vw;
+    box-shadow: none;
   }
   .b{
     margin-bottom: 10px;
