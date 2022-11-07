@@ -4,6 +4,11 @@
   justify-content: center;
 }
 
+.title{
+  font-family: monospace;
+  font-size: 48px;
+}
+
 .App{
   width: 40vw;
   margin-top: 40px;

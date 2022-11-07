@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       {console.log(tasks)}
-      <h2>To Do List</h2>
+      <h2 className='title'>To Do List</h2>
       <Input tasks = {tasks} listAdd = {addToList} changeView={changeView} />
       <Display tasks = {tasks} handleClick={toggleStatus} />
     </div>
