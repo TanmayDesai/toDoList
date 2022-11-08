@@ -9,11 +9,11 @@ const Display = (props) => {
     console.log(arr)
     let items = arr.map((task)=>{
         return ( 
-        <Alert className='alert' onClick={()=> props.handleClick(task.task)} 
+        <Alert className='alert' onClick={()=> props.handleClick(task.id,task.task)} 
         key={task.task} 
         variant={task.isCompleted? 'success': 'danger'} >
             {task.task}
-        <CloseButton disabled className='close' onClick={()=>props.handleDelete(task.task)}/>
+        <CloseButton className='close' onClick={()=>props.handleDelete(task.id)}/>
         </Alert>
         );
     })

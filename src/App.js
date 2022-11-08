@@ -3,12 +3,17 @@ import Input from './components/Input';
 import Display from './components/Display';
 import Tasks from "./components/Tasks";
 import Progress from './components/Progress';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc} from 'firebase/firestore'
+import { db } from "./Firebase";
 
 
 function App() {
-  const[tasks, setTasks] = useState(Tasks)
+  const[tasks, setTasks] = useState([])
   const[view, setView] = useState("default")
+
+  useEffect(()=>onSnapshot(collection(db,'todo'),(snapshot)=>{
+    setTasks(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))}),[])
 
   const changeView = (viewName) => {
     setView(viewName)
@@ -20,30 +25,30 @@ function App() {
       alert("Please add a valid task and try again :)")
       return;
     }
-    setTasks(tasks => [...tasks,{
+    addDoc(collection(db, 'todo'), {
       task: val,
       isCompleted: false
-    },])
+    });
     //console.log(val)
   }
 
-  const toggleStatus = (name) =>{
-    console.log(`delete ${name}`)
-    let arr = [...tasks]
-    let i = arr.findIndex(a=>a.task === name)
-    //console.log(i)
-    arr[i].isCompleted = arr[i].isCompleted? false : true
-    setTasks(arr)
+  const toggleStatus = (id,name) =>{
+    let i = tasks.findIndex(a=>a.task === name)
+    //alert(id)
+    let boo = tasks[i].isCompleted
+    const ref = doc(db, 'todo',id)
+    updateDoc(ref,{
+      isCompleted: !boo
+    })
   }
 
   const taskCompleted = tasks.filter((item)=> item.isCompleted === true)
   const taskIncomplete = tasks.filter((item)=> item.isCompleted === false)
 
-  const handleDelete = (name) => {
+  const handleDelete = (id) => {
     //alert('Delete Item')
-    let arrDel = tasks.filter((item) => item.task !== name)
-    console.log(arrDel)
-    setTasks(arrDel)
+    const ref = doc(db, 'todo',id)
+    deleteDoc(ref)
   }
 
   switch(view){
